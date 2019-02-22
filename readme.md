@@ -6,13 +6,17 @@ Reusable Modal component, supports own custom HTML, text and classes.
 
 ## Installation
 
+```shell
     npm i @melmacaluso/vue-modal
+```
 
 ## Usage
 
 Simply import it in your desired vue component as follows:
 
-    import  Modal  from  "@melmacaluso/vue-modal"
+```javascript
+import Modal from "@melmacaluso/vue-modal";
+```
 
 ## Props
 
@@ -23,8 +27,9 @@ Simply import it in your desired vue component as follows:
 | `closeBtn`     | Boolean  | Conditionally add a close button             |
 | `closeBtnHTML` | String   | Pass here your html for the close button     |
 
-Example:
+## Example:
 
+```javascript
     <Modal btnText="Press me, senpai 😊"
            modalHTML="
                <div>
@@ -35,3 +40,4 @@ Example:
            :closeBtn="true"
            closeBtnHTML="<span>X</span>"
     />
+```
