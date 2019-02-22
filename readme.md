@@ -7,7 +7,7 @@ Reusable Modal component, supports own custom HTML, text and classes.
 ## Installation
 
 ```shell
-    npm i @melmacaluso/vue-modal
+npm i @melmacaluso/vue-modal
 ```
 
 ## Usage
@@ -29,15 +29,16 @@ import Modal from "@melmacaluso/vue-modal";
 
 ## Example:
 
-```javascript
-    <Modal btnText="Press me, senpai 😊"
-           modalHTML="
+```vue
+<Modal
+  btnText="Press me, senpai 😊"
+  modalHTML="
                <div>
     	           <p>This is your fully functional html/css modal</p>
     		       <p>You can even pass a component, or can you 😏?</p>
                </div>
                "
-           :closeBtn="true"
-           closeBtnHTML="<span>X</span>"
-    />
+  :closeBtn="true"
+  closeBtnHTML="<span>X</span>"
+/>
 ```
