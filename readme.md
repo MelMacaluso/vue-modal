@@ -1,8 +1,15 @@
 # Vue Modal 🖼
 
+![Animated, dismissable from overlay . close button and...you get to do your own styling/html! ](https://media.giphy.com/media/YlJxxw27aslBityNYX/giphy.gif)
+
 ## Intro
 
 Reusable Modal component, supports own custom HTML, text and classes.
+
+## Demo
+
+- Code editor - [codesandobx](https://codesandbox.io/s/2xjwl7x6zy)
+- Preview - [codesandbox](https://2xjwl7x6zy.codesandbox.io/)
 
 ## Installation
 
