@@ -1,13 +1,37 @@
 <template>
   <div>
-    <button @click.stop="toggleModal">{{btnText}}</button>
+    <div v-if="!doppelMode">
+      <button @click.stop="toggleModal">{{btnText}}</button>
+    </div>
+    <div v-else>
+      <div v-for="(modal,i) in modals" :key="i">
+        <button @click.stop="toggleModal(i)">{{modal.btnText}}</button>
+        <button v-if="modal.closeBtn" @click.stop="modal.toggleModal">
+          <div v-html="modal.closeBtnContent"></div>
+        </button>
+      </div>
+    </div>
     <transition name="fade">
       <div class="pin bg-overlay" v-if="modalVisible" @click.self="toggleModal">
         <button v-if="closeBtn" @click.stop="toggleModal">
-          <div v-html="closeBtnHTML"></div>
+          <div v-html="closeBtnContent"></div>
         </button>
-        <slot v-if="!modalHTML"></slot>
-        <div v-else v-html="modalHTML" ></div>
+        <div v-if="!doppelMode">
+          <slot v-if="!modalContent"></slot>
+          <div v-else v-html="modalContent"></div>
+        </div>
+        <div v-else>
+          <div v-for="(modal,i) in modals" :key="i">
+            <transition name="fade">
+              <div v-if="clickedBtn === i">
+                <div v-html="modal.modalContent"></div>
+              </div>
+            </transition>
+            <div v-if="showNav">
+              <button :class="clickedBtn === i ? 'active' : '' " @click.stop="switchContent(i)">{{modal.btnText}}</button>
+            </div>
+          </div>
+        </div>
       </div>
     </transition>
   </div>
@@ -17,19 +41,27 @@
 export default {
   data() {
     return {
-      modalVisible: false
+      modalVisible: false,
+      clickedBtn: 0
     };
   },
   name: "Modal",
   props: {
     btnText: String,
-    modalHTML: String,
+    modalContent: String,
     closeBtn: Boolean,
-    closeBtnHTML: String
+    closeBtnContent: String,
+    doppelMode: Boolean,
+    modals: Array,
+    showNav: Boolean
   },
   methods: {
-    toggleModal() {
+    toggleModal(i) {
       this.modalVisible = !this.modalVisible;
+      this.clickedBtn = i;
+    },
+    switchContent(i) {
+      this.clickedBtn = i;
     }
   }
 };
