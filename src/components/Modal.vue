@@ -24,9 +24,7 @@
           <div class="content">
             <div v-for="(modal,i) in modals" :key="`content-${modal.i}`">
                 <transition name="fade">
-                  <div v-if="clickedBtn === i">
-                    <div v-html="modal.modalContent"></div>
-                  </div>
+                    <div v-if="clickedBtn === i" v-html="modal.modalContent"></div>
                 </transition>
             </div>
           </div>
