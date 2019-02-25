@@ -17,6 +17,7 @@
     "*.json",
     "*.js"
   ],
+  "license": "MIT",
   "keywords": [
     "front-end",
     "web",
