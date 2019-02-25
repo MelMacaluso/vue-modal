@@ -6,8 +6,8 @@
         <button v-if="closeBtn" @click.stop="toggleModal">
           <div v-html="closeBtnHTML"></div>
         </button>
-        <div v-html="modalHTML">
-        </div>
+        <slot v-if="!modalHTML"></slot>
+        <div v-else v-html="modalHTML" ></div>
       </div>
     </transition>
   </div>

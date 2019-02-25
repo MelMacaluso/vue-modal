@@ -4,7 +4,7 @@
 
 ## Intro
 
-Reusable Modal component, supports own custom HTML, text and classes.
+Reusable Modal component, supports own custom HTML, text and classes and/or passing a component.
 
 ## Demo
 
@@ -34,18 +34,33 @@ import Modal from "@melmacaluso/vue-modal";
 | `closeBtn`     | Boolean  | Conditionally add a close button             |
 | `closeBtnHTML` | String   | Pass here your html for the close button     |
 
-## Example:
+## Example (inline HTML):
 
 ```vue
 <Modal
   btnText="Press me, senpai 😊"
   modalHTML="
-               <div>
-    	           <p>This is your fully functional html/css modal</p>
-    		       <p>You can even pass a component, or can you 😏?</p>
-               </div>
-               "
+        <div>
+          <h2> Hello I am a modal</h2>
+          <p>I like stating the obvious: <b>the obvious</b></p>
+          <p>Now, try this trick: <code>Ctrl + Shift + W </code> 😉</p>
+        </div>
+      "
+  :closeBtn="true"
+  closeBtnHTML="
+        <span>X</span>
+    "
+/>
+```
+
+## Example (Passing component):
+
+```vue
+<Modal
+  btnText="Press me, senpai 😊"
   :closeBtn="true"
   closeBtnHTML="<span>X</span>"
-/>
+>
+  <ExampleComponent/>
+</Modal>
 ```
