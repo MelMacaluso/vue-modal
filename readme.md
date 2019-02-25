@@ -2,16 +2,16 @@
 
 [![npm](https://img.shields.io/npm/dw/@melmacaluso/vue-modal.svg?label=Downloads)](https://www.npmjs.com/package/@melmacaluso/vue-modal)
 
-![Animated, dismissable from overlay . close button and...you get to do your own styling/html! ](https://media.giphy.com/media/YlJxxw27aslBityNYX/giphy.gif)
+![Animated, dismissable from overlay . close button and...you get to do your own styling/html! ](https://media.giphy.com/media/LY8Ly5UrNYcuWvoOEY/giphy.gif)
 
 ## Intro
 
-Reusable Modal component, supports own custom HTML, text and classes and/or passing a component.
+Reusable Modal component, supports own custom HTML, text and classes and/or passing a component. Featuring multiple modal content / buttons.
 
 ## Demo
 
-- Code editor - [codesandobx](https://codesandbox.io/s/k9p4zqlr25)
-- Preview - [codesandbox](https://k9p4zqlr25.codesandbox.io/)
+- Code editor - [codesandobx](https://codesandbox.io/s/rmj2y345xo)
+- Preview - [codesandbox](https://rmj2y345xo.codesandbox.io/)
 
 ## Installation
 
@@ -78,15 +78,16 @@ import Modal from "@melmacaluso/vue-modal";
   :modals="[
     {
       btnText: 'Press me 1',
-      modalContent: 'This is the content 1'
+      modalContent: 'This is <strong>the</strong> content 1'
     },
     {
       btnText: 'Press me 2',
-      modalContent: 'This is the content 2'
+      modalContent:
+        '<img src=\'https://media.giphy.com/media/5exwXWg9u7yow/giphy.gif\'>'
     },
     {
       btnText: 'Press me 3',
-      modalContent: 'This is the content 3'
+      modalContent: 'This is the <h3>content 3</h3>'
     }
   ]"
   :showNav="true"
