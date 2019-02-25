@@ -16,19 +16,25 @@
         <button v-if="closeBtn" @click.stop="toggleModal">
           <div v-html="closeBtnContent"></div>
         </button>
-        <div v-if="!doppelMode">
+        <div v-if="!doppelMode" class="modal">
           <slot v-if="!modalContent"></slot>
           <div v-else v-html="modalContent"></div>
         </div>
-        <div v-else>
-          <div v-for="(modal,i) in modals" :key="i">
-            <transition name="fade">
-              <div v-if="clickedBtn === i">
-                <div v-html="modal.modalContent"></div>
-              </div>
-            </transition>
-            <div v-if="showNav">
-              <button :class="clickedBtn === i ? 'active' : '' " @click.stop="switchContent(i)">{{modal.btnText}}</button>
+        <div v-else class="modals">
+          <div class="content">
+            <div v-for="(modal,i) in modals" :key="`content-${modal.i}`">
+                <transition name="fade">
+                  <div v-if="clickedBtn === i">
+                    <div v-html="modal.modalContent"></div>
+                  </div>
+                </transition>
+            </div>
+          </div>
+          <div class="navigation" v-if="showNav">
+            <div v-for="(modal,i) in modals" :key="`btn-${modal.i}`">
+              <button :class="clickedBtn === i ? 'active' : '' " @click.stop="switchContent(i)">
+                {{modal.btnText}}
+              </button>
             </div>
           </div>
         </div>
