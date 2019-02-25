@@ -29,29 +29,32 @@ import Modal from "@melmacaluso/vue-modal";
 
 ## Props
 
-| **Prop**       | **Type** | **Comment**                                  |
-| -------------- | -------- | -------------------------------------------- |
-| `btnText`      | String   | Text label for modal button                  |
-| `modalHTML`    | String   | Pass here your html for the modal main modal |
-| `closeBtn`     | Boolean  | Conditionally add a close button             |
-| `closeBtnHTML` | String   | Pass here your html for the close button     |
+| **Prop**            | **Type** | **Comment**                                                                                              |
+| ------------------- | -------- | -------------------------------------------------------------------------------------------------------- |
+| `btn-text`          | String   | Text label for modal button                                                                              |
+| `modal-content`     | String   | Pass here your html for the modal main modal                                                             |
+| `close-btn`         | Boolean  | Conditionally add a close button                                                                         |
+| `close-btn-content` | String   | Pass here your html for the close button                                                                 |
+| `doppel-mode`       | Boolean  | Allow multiple buttons/content within the modal                                                          |
+| `modals`            | Array    | Pass here an array of objects, they retain the same props within the array's scope ie. `<scope>.btnText` |
+| `show-nav`          | Boolean  | Conditionally show a navigation within the Modal's contents                                              |
 
 ## Example (inline HTML):
 
 ```vue
 <Modal
-  btnText="Press me, senpai 😊"
-  modalHTML="
+  btn-text="Press me, senpai 😊"
+  modal-content="
         <div>
           <h2> Hello I am a modal</h2>
           <p>I like stating the obvious: <b>the obvious</b></p>
           <p>Now, try this trick: <code>Ctrl + Shift + W </code> 😉</p>
         </div>
-      "
-  :closeBtn="true"
-  closeBtnHTML="
+        "
+  :close-btn="true"
+  close-btn-content="
         <span>X</span>
-    "
+        "
 />
 ```
 
@@ -65,4 +68,27 @@ import Modal from "@melmacaluso/vue-modal";
 >
   <ExampleComponent/>
 </Modal>
+```
+
+## Example (multiple buttons & modal content):
+
+```vue
+<Modal
+  :doppel-mode="true"
+  :modals="[
+    {
+      btnText: 'Press me 1',
+      modalContent: 'This is the content 1'
+    },
+    {
+      btnText: 'Press me 2',
+      modalContent: 'This is the content 2'
+    },
+    {
+      btnText: 'Press me 3',
+      modalContent: 'This is the content 3'
+    }
+  ]"
+  :show-nav="true"
+/>
 ```
