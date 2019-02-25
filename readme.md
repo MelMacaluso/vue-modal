@@ -35,7 +35,7 @@ import Modal from "@melmacaluso/vue-modal";
 | `modalContent`     | String   | Pass here your html for the modal main modal                                                             |
 | `closeBtn`         | Boolean  | Conditionally add a close button                                                                         |
 | `closeBtn-content` | String   | Pass here your html for the close button                                                                 |
-| `doppelMode`       | Boolean  | Allow multiple buttons/content within the modal                                                          |
+| `inception`        | Boolean  | Allow multiple buttons/content within the modal                                                          |
 | `modals`           | Array    | Pass here an array of objects, they retain the same props within the array's scope ie. `<scope>.btnText` |
 | `showNav`          | Boolean  | Conditionally show a navigation within the Modal's contents                                              |
 
@@ -74,7 +74,7 @@ import Modal from "@melmacaluso/vue-modal";
 
 ```vue
 <Modal
-  :doppelMode="true"
+  :inception="true"
   :modals="[
     {
       btnText: 'Press me 1',
