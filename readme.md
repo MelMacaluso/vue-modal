@@ -8,8 +8,8 @@ Reusable Modal component, supports own custom HTML, text and classes and/or pass
 
 ## Demo
 
-- Code editor - [codesandobx](https://codesandbox.io/s/2xjwl7x6zy)
-- Preview - [codesandbox](https://2xjwl7x6zy.codesandbox.io/)
+- Code editor - [codesandobx](https://codesandbox.io/s/k9p4zqlr25)
+- Preview - [codesandbox](https://k9p4zqlr25.codesandbox.io/)
 
 ## Installation
 
