@@ -5,7 +5,7 @@
     </div>
     <div v-else>
       <div v-for="(modal,i) in modals" :key="`modal-${i}`">
-        <button @click.stop="toggleModal(i); beforeOpen()">SI {{modal.btnText}}</button>
+        <button @click.stop="toggleModal(i); beforeOpen()">{{modal.btnText}}</button>
         <button v-if="modal.closeBtn" @click.stop="modal.toggleModal">
           <div v-html="modal.closeBtnContent"></div>
         </button>
