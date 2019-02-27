@@ -38,6 +38,7 @@ import Modal from "@melmacaluso/vue-modal";
 | `inception`        | Boolean  | Allow multiple buttons/content within the modal                                                          |
 | `modals`           | Array    | Pass here an array of objects, they retain the same props within the array's scope ie. `<scope>.btnText` |
 | `showNav`          | Boolean  | Conditionally show a navigation within the Modal's contents                                              |
+| `@before-open`     | Boolean  | Attach here your custom function, it will be invoked when the modal opens                                |
 
 ## Example (inline HTML):
 
@@ -70,11 +71,12 @@ import Modal from "@melmacaluso/vue-modal";
 </Modal>
 ```
 
-## Example (multiple buttons & modal content):
+## Example (multiple buttons & modal content) + custom function:
 
 ```vue
 <Modal
   :inception="true"
+  @before-open="yourFunction()"
   :modals="[
     {
       btnText: 'Press me 1',

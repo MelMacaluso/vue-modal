@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-if="!inception">
-      <button @click.stop="toggleModal">NO {{btnText}}</button>
+      <button @click.stop="toggleModal">{{btnText}}</button>
     </div>
     <div v-else>
       <div v-for="(modal,i) in modals" :key="`modal-${i}`">
