@@ -12,7 +12,7 @@
       </div>
     </div>
     <transition name="fade">
-      <div class="pin bg-overlay" v-if="modalVisible" @click.self="toggleModal">
+      <div class="pin bg-overlay" v-if="modalVisible" @click.self="toggleModal(); beforeClose()">
         <button v-if="closeBtn" @click.stop="toggleModal">
           <div v-html="closeBtnContent"></div>
         </button>
@@ -62,6 +62,9 @@ export default {
   methods: {
     beforeOpen() {
       this.$emit("before-open");
+    },
+    beforeClose() {
+      this.$emit("before-close");
     },
     toggleModal(i) {
       this.modalVisible = !this.modalVisible;
