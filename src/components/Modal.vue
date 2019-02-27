@@ -1,11 +1,11 @@
 <template>
   <div>
     <div v-if="!inception">
-      <button @click.stop="toggleModal">{{btnText}}</button>
+      <button @click.stop="toggleModal">NO {{btnText}}</button>
     </div>
     <div v-else>
-      <div v-for="(modal,i) in modals" :key="i">
-        <button @click.stop="toggleModal(i)">{{modal.btnText}}</button>
+      <div v-for="(modal,i) in modals" :key="`modal-${i}`">
+        <button @click.stop="toggleModal(i); beforeOpen()">SI {{modal.btnText}}</button>
         <button v-if="modal.closeBtn" @click.stop="modal.toggleModal">
           <div v-html="modal.closeBtnContent"></div>
         </button>
@@ -22,14 +22,14 @@
         </div>
         <div v-else class="modals">
           <div class="content">
-            <div v-for="(modal,i) in modals" :key="`content-${modal.i}`">
+            <div v-for="(modal,i) in modals" :key="`content-${i}`">
                 <transition name="fade">
                     <div v-if="clickedBtn === i" v-html="modal.modalContent"></div>
                 </transition>
             </div>
           </div>
           <div class="navigation" v-if="showNav">
-            <div v-for="(modal,i) in modals" :key="`btn-${modal.i}`">
+            <div v-for="(modal,i) in modals" :key="`btn-${i}`">
               <button :class="clickedBtn === i ? 'active' : '' " @click.stop="switchContent(i)">
                 {{modal.btnText}}
               </button>
@@ -60,6 +60,9 @@ export default {
     showNav: Boolean
   },
   methods: {
+    beforeOpen() {
+      this.$emit("before-open");
+    },
     toggleModal(i) {
       this.modalVisible = !this.modalVisible;
       this.clickedBtn = i;
