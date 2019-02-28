@@ -36,8 +36,8 @@
             </div>
           </div>
           <div class="navigation-arrows" v-if="showArrows">
-            <button v-if="clickedBtn !== 0" @click="prevModal">{{arrowPrevContent}}</button>
-            <button v-if="clickedBtn !== (modals.length - 1) " @click="nextModal">{{arrowNextContent}}</button>
+            <button v-if="clickedBtn !== 0" @click="prevModal" v-html="arrowNextContent"></button>
+            <button v-if="clickedBtn !== (modals.length - 1) " @click="nextModal" v-html="arrowNextContent"></button>
           </div>
         </div>
       </div>
