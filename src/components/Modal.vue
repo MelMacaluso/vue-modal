@@ -35,6 +35,10 @@
               </button>
             </div>
           </div>
+          <div class="navigation-arrows" v-if="showArrows">
+            <button v-if="clickedBtn !== 0" @click="prevModal">{{arrowPrevContent}}</button>
+            <button v-if="clickedBtn !== (modals.length - 1) " @click="nextModal">{{arrowNextContent}}</button>
+          </div>
         </div>
       </div>
     </transition>
@@ -57,7 +61,16 @@ export default {
     closeBtnContent: String,
     inception: Boolean,
     modals: Array,
-    showNav: Boolean
+    showNav: Boolean,
+    showArrows: Boolean,
+    arrowPrevContent: {
+      type: String,
+      default: "<"
+    },
+    arrowNextContent: {
+      type: String,
+      default: ">"
+    }
   },
   methods: {
     beforeOpen() {
@@ -72,6 +85,12 @@ export default {
     },
     switchContent(i) {
       this.clickedBtn = i;
+    },
+    prevModal() {
+      this.clickedBtn > 0 ? (this.clickedBtn -= 1) : "";
+    },
+    nextModal() {
+      this.clickedBtn < this.modals.length - 1 ? (this.clickedBtn += 1) : "";
     }
   }
 };
