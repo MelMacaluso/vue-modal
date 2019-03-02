@@ -1,8 +1,8 @@
-# Vue Modal 🖼
 
+# Vue Modal 🖼
 [![npm](https://img.shields.io/npm/dw/@melmacaluso/vue-modal.svg?label=Downloads)](https://www.npmjs.com/package/@melmacaluso/vue-modal)
 
-![Animated, dismissable from overlay . close button and...you get to do your own styling/html! ](https://media.giphy.com/media/LY8Ly5UrNYcuWvoOEY/giphy.gif)
+![Reusable Modal component, supports own custom HTML, text and classes and/or passing a component. Featuring multiple modal content / buttons.](https://uploads.codesandbox.io/uploads/user/43f40d08-3ba6-478b-aea0-65ee70e293f3/TPT3-vue-modal-logo.png)
 
 ## Intro
 
@@ -28,7 +28,7 @@ Instead: it wants to take it a step further: it gives you a skeleton base struct
   navigation, modal trigger button/s
 
 ## Demo
-
+![Vue modal animated demo](https://media.giphy.com/media/LY8Ly5UrNYcuWvoOEY/giphy.gif)
 - Code editor - [codesandobx](https://codesandbox.io/s/rmj2y345xo)
 - Preview - [codesandbox](https://rmj2y345xo.codesandbox.io/)
 
