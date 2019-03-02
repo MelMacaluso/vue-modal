@@ -60,10 +60,12 @@ import Modal from "@melmacaluso/vue-modal";
 | `showArrows`       | Boolean  | Conditionally show an arrow based navigation                                                             |
 | `arroNextContent`  | String   | Pass here your html for the next arrow                                                                   |
 | `arroPrevContent`  | String   | Pass here your html for the previous arrow                                                               |
-| `@before-open`     | Boolean  | Attach here your custom function, it will be invoked before the modal opens                              |
-| `@before-close`    | Boolean  | Attach here your custom function, it will be invoked before the modal closes                             |
+| `@before-open`     | Object  | Attach here your custom function, it will be invoked before the modal opens                              |
+| `@before-close`    | Object  | Attach here your custom function, it will be invoked before the modal closes                             |
 
-## Example (inline HTML):
+## Examples
+
+### Inline HTML:
 
 ```vue
 <Modal
@@ -82,7 +84,7 @@ import Modal from "@melmacaluso/vue-modal";
 />
 ```
 
-## Example (Passing component):
+### Passing component:
 
 ```vue
 <Modal
@@ -94,7 +96,7 @@ import Modal from "@melmacaluso/vue-modal";
 </Modal>
 ```
 
-## Example (multiple buttons & modal content) + custom functions:
+### multiple buttons & modal content) + custom functions:
 
 ```vue
 <Modal
@@ -119,3 +121,41 @@ import Modal from "@melmacaluso/vue-modal";
   :showNav="true"
 />
 ```
+
+### From Api/Json + Prev/Next Arrows:
+
+```vue
+<Modal
+  :inception="true"
+  :modals="formattedUsers"
+  :showArrows="true"
+/>
+
+[...]
+
+  data: () => {
+    return {
+      users: []
+    }
+  },
+  mounted(){
+    fetch('https://jsonplaceholder.typicode.com/users')
+      .then(res => res.json())
+      .then(res => this.users = res)
+      .catch(err => console.log(err))
+  },
+  computed: {
+    formattedUsers: function() {
+      return this.users.map(user => {
+        return {
+          btnText: `${user.name}`,
+          modalContent: `
+            <h2>Email:${user.email}</h2>
+            <h2>Phone:${user.phone}</h2>
+          `
+        };
+      });
+    }
+  }
+```
+
