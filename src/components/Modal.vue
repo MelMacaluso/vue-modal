@@ -36,7 +36,7 @@
             </div>
           </div>
           <div class="navigation-arrows" v-if="showArrows">
-            <button v-if="clickedBtn !== 0" @click="prevModal" v-html="arrowNextContent"></button>
+            <button v-if="clickedBtn !== 0" @click="prevModal" v-html="arrowPrevContent"></button>
             <button v-if="clickedBtn !== (modals.length - 1) " @click="nextModal" v-html="arrowNextContent"></button>
           </div>
         </div>
@@ -58,7 +58,10 @@ export default {
     btnText: String,
     modalContent: String,
     closeBtn: Boolean,
-    closeBtnContent: String,
+    closeBtnContent: {
+      type: String,
+      default: "X"
+    },
     inception: Boolean,
     modals: Array,
     showNav: Boolean,

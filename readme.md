@@ -8,6 +8,25 @@
 
 Reusable Modal component, supports own custom HTML, text and classes and/or passing a component. Featuring multiple modal content / buttons.
 
+## What this ISN'T
+
+This component is not meant to be a bootstrap-ish already-styled-modal-replacer for Vue.
+
+## What this IS
+
+Instead: it wants to take it a step further: it gives you a skeleton base structure where you are free to apply your own css styling according to your requirements/website and gives you freedom of formatting the content/arrows/buttons/events as you wish with little to no effort.
+
+## Features
+
+- Animated modal transition
+- Overlay on modal background
+- Custom event triggering on `before-close` and `before-open`
+- Conditional: Next/prev arrows, close button, paging
+- Next and prev arrow for switching between modal contents
+- Modal contents navigation with custom paging
+- CSS/HTML customisation of: prev/next arrows, modal content, modal
+  navigation, modal trigger button/s
+
 ## Demo
 
 - Code editor - [codesandobx](https://codesandbox.io/s/rmj2y345xo)
@@ -37,7 +56,10 @@ import Modal from "@melmacaluso/vue-modal";
 | `closeBtn-content` | String   | Pass here your html for the close button                                                                 |
 | `inception`        | Boolean  | Allow multiple buttons/content within the modal                                                          |
 | `modals`           | Array    | Pass here an array of objects, they retain the same props within the array's scope ie. `<scope>.btnText` |
-| `showNav`          | Boolean  | Conditionally show a navigation within the Modal's contents                                              |
+| `showNav`          | Boolean  | Conditionally show a navigation with each modal's `btnText`                                              |
+| `showArrows`       | Boolean  | Conditionally show an arrow based navigation                                                             |
+| `arroNextContent`  | String   | Pass here your html for the next arrow                                                                   |
+| `arroPrevContent`  | String   | Pass here your html for the previous arrow                                                               |
 | `@before-open`     | Boolean  | Attach here your custom function, it will be invoked before the modal opens                              |
 | `@before-close`    | Boolean  | Attach here your custom function, it will be invoked before the modal closes                             |
 
