@@ -1,0 +1,16 @@
+version: 2.0
+jobs:
+  build:
+    docker:
+      - image: circleci/node:latest
+    steps:
+      - checkout
+      - run:
+          name: Install npm
+          command: npm i
+      - run:
+          name: Unit testing
+          command: npm run test:unit
+      - run:
+          name: Semantic realease
+          command: npx semantic-release

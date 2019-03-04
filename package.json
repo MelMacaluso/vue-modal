@@ -1,41 +1,18 @@
 {
   "name": "@melmacaluso/vue-modal",
-  "version": "1.8.4",
+  "version": "0.0.0-development",
   "private": false,
   "author": {
     "name": "Mel Macaluso"
   },
-  "main": "dist/vue-modal.umd.min.js",
-  "module": "dist/vue-modal-mhm.esm.js",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/MelMacaluso/vue-modal.git"
-  },
-  "files": [
-    "src/*",
-    "dist/*",
-    "*.json",
-    "*.js"
-  ],
-  "license": "MIT",
-  "keywords": [
-    "front-end",
-    "web",
-    "vue",
-    "vuejs",
-    "dialog",
-    "alert",
-    "modal",
-    "vue-modal",
-    "component",
-    "popup",
-    "vue-modal-component"
-  ],
   "scripts": {
+    "commit": "git-cz",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "build-lib": "vue-cli-service build --target lib --name vue-modal ./src/components/index.js"
+    "build-lib": "vue-cli-service build --target lib --name vue-modal ./src/components/index.js",
+    "test:unit": "vue-cli-service test:unit",
+    "semantic-release": "semantic-release"
   },
   "dependencies": {
     "vue": "^2.6.6"
@@ -43,12 +20,19 @@
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.4.0",
     "@vue/cli-plugin-eslint": "^3.4.0",
+    "@vue/cli-plugin-unit-jest": "^3.4.1",
     "@vue/cli-service": "^3.4.0",
+    "@vue/test-utils": "^1.0.0-beta.29",
+    "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
+    "babel-jest": "^23.6.0",
+    "commitizen": "^3.0.7",
+    "cz-conventional-changelog": "^2.1.0",
     "eslint": "^5.8.0",
     "eslint-plugin-vue": "^5.0.0",
     "node-sass": "^4.11.0",
     "sass-loader": "^7.1.0",
+    "semantic-release": "^15.13.3",
     "vue-template-compiler": "^2.5.21"
   },
   "eslintConfig": {
@@ -70,9 +54,40 @@
       "autoprefixer": {}
     }
   },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    }
+  },
   "browserslist": [
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
-  ]
+  ],
+  "files": [
+    "src/*",
+    "dist/*",
+    "*.json",
+    "*.js"
+  ],
+  "keywords": [
+    "front-end",
+    "web",
+    "vue",
+    "vuejs",
+    "dialog",
+    "alert",
+    "modal",
+    "vue-modal",
+    "component",
+    "popup",
+    "vue-modal-component"
+  ],
+  "license": "MIT",
+  "main": "dist/vue-modal.umd.min.js",
+  "module": "dist/vue-modal-mhm.esm.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MelMacaluso/vue-modal.git"
+  }
 }
