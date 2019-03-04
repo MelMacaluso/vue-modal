@@ -6,14 +6,14 @@
     <div v-else class="btns-wrapper">
       <div v-for="(modal,i) in modals" :key="`modal-${i}`"  class="btn-wrapper">
         <button @click.stop="toggleModal(i); beforeOpen()">{{modal.btnText}}</button>
-        <button v-if="modal.closeBtn" @click.stop="modal.toggleModal">
+        <button v-if="modal.closeBtn" @click.stop="toggleModal(); beforeClose()">
           <div v-html="modal.closeBtnContent"></div>
         </button>
       </div>
     </div>
     <transition name="fade">
       <div class="overlay" v-if="modalVisible" @click.self="toggleModal(); beforeClose()">
-        <button v-if="closeBtn" @click.stop="toggleModal">
+        <button v-if="closeBtn" @click.stop="toggleModal(); beforeClose()">
           <div v-html="closeBtnContent"></div>
         </button>
         <div v-if="!inception" class="modal">
@@ -37,7 +37,7 @@
           </div>
           <div class="navigation-arrows" v-if="showArrows">
             <button class="prev-arrow" v-if="clickedBtn !== 0" @click="prevModal" v-html="arrowPrevContent"></button>
-            <button class="close" v-if="showArrowsCloseBtn" @click.stop="toggleModal">
+            <button class="close" v-if="showArrowsCloseBtn" @click.stop="toggleModal(); beforeClose()">
               <div v-html="closeBtnContent"></div>
             </button>
             <button class="next-arrow" v-if="clickedBtn !== (modals.length - 1) " @click="nextModal" v-html="arrowNextContent"></button>
