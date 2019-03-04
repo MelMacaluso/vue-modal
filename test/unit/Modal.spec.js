@@ -6,7 +6,7 @@ describe('Multiple Content modals', ()=> {
   beforeEach(() => {
     wrapper = shallowMount(Modal, {
       propsData: {
-        inception: true,
+        multiple: true,
         modals: [
           {
             btnText: 'Press me 1',

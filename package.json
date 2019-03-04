@@ -12,6 +12,7 @@
     "lint": "vue-cli-service lint",
     "build-lib": "vue-cli-service build --target lib --name vue-modal ./src/components/index.js",
     "test:unit": "vue-cli-service test:unit",
+    "test:unit-watch": "vue-cli-service test:unit --watch",
     "semantic-release": "semantic-release"
   },
   "dependencies": {

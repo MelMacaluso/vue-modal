@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-if="!inception">
+    <div v-if="!multiple">
       <button @click.stop="toggleModal">{{btnText}}</button>
     </div>
     <div v-else class="btns-wrapper">
@@ -16,7 +16,7 @@
         <button v-if="closeBtn" @click.stop="toggleModal(); beforeClose()">
           <div v-html="closeBtnContent"></div>
         </button>
-        <div v-if="!inception" class="modal">
+        <div v-if="!multiple" class="modal">
           <slot v-if="!modalContent"></slot>
           <div v-else v-html="modalContent"></div>
         </div>
@@ -65,7 +65,7 @@ export default {
       type: String,
       default: "X"
     },
-    inception: Boolean,
+    multiple: Boolean,
     modals: Array,
     showNav: Boolean,
     showArrows: Boolean,

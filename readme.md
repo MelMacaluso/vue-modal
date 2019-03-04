@@ -66,13 +66,13 @@ import Modal from "@melmacaluso/vue-modal";
 | `modalContent`     | String   | Pass here your html for the modal main modal                                                             |
 | `closeBtn`         | Boolean  | Conditionally add a close button                                                                         |
 | `closeBtn-content` | String   | Pass here your html for the close button                                                                 |
-| `inception`        | Boolean  | Allow multiple buttons/content within the modal                                                          |
+| `multiple`        | Boolean  | Allow multiple buttons/content within the modal                                                          |
 | `modals`           | Array    | Pass here an array of objects, they retain the same props within the array's scope ie. `<scope>.btnText` |
 | `showNav`          | Boolean  | Conditionally show a navigation with each modal's `btnText`                                              |
 | `showArrows`       | Boolean  | Conditionally show an arrow based navigation                                                             |
 | `showArrowsCloseBtn`       | Boolean  | Conditionally show an the close button between the prev/next arrows, it inherits `closeBtn-content`                                                             |
-| `arroNextContent`  | String   | Pass here your html for the next arrow                                                                   |
-| `arroPrevContent`  | String   | Pass here your html for the previous arrow                                                               |
+| `arrowNextContent`  | String   | Pass here your html for the next arrow                                                                   |
+| `arrowPrevContent`  | String   | Pass here your html for the previous arrow                                                               |
 | `@before-open`     | Function  | Attach here your custom function, it will be invoked before the modal opens                              |
 | `@before-close`    | Function  | Attach here your custom function, it will be invoked before the modal closes                             |
 
@@ -113,7 +113,7 @@ import Modal from "@melmacaluso/vue-modal";
 
 ```vue
 <Modal
-  :inception="true"
+  :multiple="true"
   @before-open="yourOpenFn()"
   @before-close="yourCloseFn()"
   :modals="[
@@ -139,7 +139,7 @@ import Modal from "@melmacaluso/vue-modal";
 
 ```vue
 <Modal
-  :inception="true"
+  :multiple="true"
   :modals="formattedUsers"
   :showArrows="true"
 />
