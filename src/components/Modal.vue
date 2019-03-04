@@ -6,14 +6,11 @@
     <div v-else class="btns-wrapper">
       <div v-for="(modal,i) in modals" :key="`modal-${i}`"  class="btn-wrapper">
         <button @click.stop="toggleModal(i); beforeOpen()">{{modal.btnText}}</button>
-        <button v-if="modal.closeBtn" @click.stop="toggleModal(); beforeClose()">
-          <div v-html="modal.closeBtnContent"></div>
-        </button>
       </div>
     </div>
     <transition name="fade">
       <div class="overlay" v-if="modalVisible" @click.self="toggleModal(); beforeClose()">
-        <button v-if="closeBtn" @click.stop="toggleModal(); beforeClose()">
+        <button class="close" v-if="closeBtn" @click.stop="toggleModal(); beforeClose()">
           <div v-html="closeBtnContent"></div>
         </button>
         <div v-if="!multiple" class="modal">
