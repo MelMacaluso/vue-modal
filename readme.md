@@ -40,6 +40,7 @@ Instead: it wants to take it a step further: it gives you a skeleton base struct
 ![Vue modal animated demo](https://media.giphy.com/media/7zoNLc5G8zJjWlyR3T/giphy.gif)
 
 </div>
+
 - Code editor - [codesandobx](https://codesandbox.io/s/rmj2y345xo)
 - Preview - [codesandbox](https://rmj2y345xo.codesandbox.io/)
 
