@@ -46,13 +46,13 @@ describe('Multiple Content modals', ()=> {
 
   describe('Current viewed Modal (clickedBtn)', ()=> {
     it('Increase on button click', () => {
-      const btn = wrapper.find('.navigation-arrows button')
+      const btn = wrapper.find('.navigation-arrows .next-arrow')
       btn.trigger('click')
       expect(wrapper.vm.clickedBtn).toBe(1)
     })
     it('Decrease on button click', () => {
       wrapper.setData({ clickedBtn: 1 })
-      const btn = wrapper.find('.navigation-arrows button')
+      const btn = wrapper.find('.navigation-arrows .prev-arrow')
       btn.trigger('click')
       expect(wrapper.vm.clickedBtn).toBe(0)
     })

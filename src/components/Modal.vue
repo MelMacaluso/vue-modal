@@ -36,8 +36,11 @@
             </div>
           </div>
           <div class="navigation-arrows" v-if="showArrows">
-            <button v-if="clickedBtn !== 0" @click="prevModal" v-html="arrowPrevContent"></button>
-            <button v-if="clickedBtn !== (modals.length - 1) " @click="nextModal" v-html="arrowNextContent"></button>
+            <button class="prev-arrow" v-if="clickedBtn !== 0" @click="prevModal" v-html="arrowPrevContent"></button>
+            <button class="close" v-if="showArrowsCloseBtn" @click.stop="toggleModal">
+              <div v-html="closeBtnContent"></div>
+            </button>
+            <button class="next-arrow" v-if="clickedBtn !== (modals.length - 1) " @click="nextModal" v-html="arrowNextContent"></button>
           </div>
         </div>
       </div>
@@ -66,6 +69,7 @@ export default {
     modals: Array,
     showNav: Boolean,
     showArrows: Boolean,
+    showArrowsCloseBtn: Boolean,
     arrowPrevContent: {
       type: String,
       default: "<"
@@ -110,7 +114,6 @@ export default {
   right: 0;
   left: 0;
   z-index: 9999;
-
 }
 
 //Transitions
