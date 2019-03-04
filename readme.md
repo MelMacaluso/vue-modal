@@ -6,7 +6,9 @@
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 
 <div align="center">
+
 ![Reusable Modal component, supports own custom HTML, text and classes and/or passing a component. Featuring multiple modal content / buttons.](https://uploads.codesandbox.io/uploads/user/43f40d08-3ba6-478b-aea0-65ee70e293f3/TPT3-vue-modal-logo.png)
+
 </div>
 
 ## Intro
@@ -34,7 +36,9 @@ Instead: it wants to take it a step further: it gives you a skeleton base struct
 
 ## Demo
 <div align="center">
+
 ![Vue modal animated demo](https://media.giphy.com/media/7zoNLc5G8zJjWlyR3T/giphy.gif)
+
 </div>
 - Code editor - [codesandobx](https://codesandbox.io/s/rmj2y345xo)
 - Preview - [codesandbox](https://rmj2y345xo.codesandbox.io/)
