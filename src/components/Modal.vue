@@ -3,8 +3,8 @@
     <div v-if="!inception">
       <button @click.stop="toggleModal">{{btnText}}</button>
     </div>
-    <div v-else>
-      <div v-for="(modal,i) in modals" :key="`modal-${i}`">
+    <div v-else class="btns-wrapper">
+      <div v-for="(modal,i) in modals" :key="`modal-${i}`"  class="btn-wrapper">
         <button @click.stop="toggleModal(i); beforeOpen()">{{modal.btnText}}</button>
         <button v-if="modal.closeBtn" @click.stop="modal.toggleModal">
           <div v-html="modal.closeBtnContent"></div>
@@ -12,7 +12,7 @@
       </div>
     </div>
     <transition name="fade">
-      <div class="pin bg-overlay" v-if="modalVisible" @click.self="toggleModal(); beforeClose()">
+      <div class="overlay" v-if="modalVisible" @click.self="toggleModal(); beforeClose()">
         <button v-if="closeBtn" @click.stop="toggleModal">
           <div v-html="closeBtnContent"></div>
         </button>
@@ -100,7 +100,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.pin {
+.overlay {
+  background-color: rgba(0, 0, 0, 0.8);
   height: 100%;
   width: 100%;
   position: fixed;
@@ -109,9 +110,7 @@ export default {
   right: 0;
   left: 0;
   z-index: 9999;
-}
-.bg-overlay {
-  background-color: rgba(0, 0, 0, 0.8);
+
 }
 
 //Transitions
