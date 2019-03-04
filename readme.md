@@ -1,11 +1,13 @@
-# Vue Modal 🖼
 
+# Vue Modal 🖼
 [![npm](https://img.shields.io/npm/dw/@melmacaluso/vue-modal.svg?label=Downloads)](https://www.npmjs.com/package/@melmacaluso/vue-modal)
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 ![CircleCI (all branches)](https://img.shields.io/circleci/project/github/MelMacaluso/vue-modal.svg)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 
+<div align="center">
 ![Reusable Modal component, supports own custom HTML, text and classes and/or passing a component. Featuring multiple modal content / buttons.](https://uploads.codesandbox.io/uploads/user/43f40d08-3ba6-478b-aea0-65ee70e293f3/TPT3-vue-modal-logo.png)
+</div>
 
 ## Intro
 
@@ -31,9 +33,9 @@ Instead: it wants to take it a step further: it gives you a skeleton base struct
   navigation, modal trigger button/s
 
 ## Demo
-
-![Vue modal animated demo](https://media.giphy.com/media/LY8Ly5UrNYcuWvoOEY/giphy.gif)
-
+<div align="center">
+![Vue modal animated demo](https://media.giphy.com/media/7zoNLc5G8zJjWlyR3T/giphy.gif)
+</div>
 - Code editor - [codesandobx](https://codesandbox.io/s/rmj2y345xo)
 - Preview - [codesandbox](https://rmj2y345xo.codesandbox.io/)
 
@@ -65,8 +67,8 @@ import Modal from "@melmacaluso/vue-modal";
 | `showArrows`       | Boolean  | Conditionally show an arrow based navigation                                                             |
 | `arroNextContent`  | String   | Pass here your html for the next arrow                                                                   |
 | `arroPrevContent`  | String   | Pass here your html for the previous arrow                                                               |
-| `@before-open`     | Function | Attach here your custom function, it will be invoked before the modal opens                              |
-| `@before-close`    | Function | Attach here your custom function, it will be invoked before the modal closes                             |
+| `@before-open`     | Function  | Attach here your custom function, it will be invoked before the modal opens                              |
+| `@before-close`    | Function  | Attach here your custom function, it will be invoked before the modal closes                             |
 
 ## Examples
 
@@ -130,14 +132,37 @@ import Modal from "@melmacaluso/vue-modal";
 ### From Api/Json feed + Prev/Next Arrows:
 
 ```vue
-<Modal :inception="true" :modals="formattedUsers" :showArrows="true" />
+<Modal
+  :inception="true"
+  :modals="formattedUsers"
+  :showArrows="true"
+/>
 
-[...] data: () => { return { users: [] } }, mounted(){
-fetch('https://jsonplaceholder.typicode.com/users') .then(res => res.json())
-.then(res => this.users = res) .catch(err => console.log(err)) }, computed: {
-formattedUsers: function() { return this.users.map(user => { return { btnText:
-`${user.name}`, modalContent: `
-<h2>Email:${user.email}</h2>
-<h2>Phone:${user.phone}</h2>
-` }; }); } }
+[...]
+
+  data: () => {
+    return {
+      users: []
+    }
+  },
+  mounted(){
+    fetch('https://jsonplaceholder.typicode.com/users')
+      .then(res => res.json())
+      .then(res => this.users = res)
+      .catch(err => console.log(err))
+  },
+  computed: {
+    formattedUsers: function() {
+      return this.users.map(user => {
+        return {
+          btnText: `${user.name}`,
+          modalContent: `
+            <h2>Email:${user.email}</h2>
+            <h2>Phone:${user.phone}</h2>
+          `
+        };
+      });
+    }
+  }
 ```
+
