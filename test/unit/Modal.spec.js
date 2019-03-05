@@ -1,10 +1,10 @@
-import { shallowMount } from '@vue/test-utils'
+import { mount } from '@vue/test-utils'
 import Modal from '@/components/Modal'
 
-describe('Multiple Content modals', ()=> {
+describe('Multiple Modals', ()=> {
   let wrapper
   beforeEach(() => {
-    wrapper = shallowMount(Modal, {
+    wrapper = mount(Modal, {
       propsData: {
         multiple: true,
         modals: [
@@ -22,6 +22,8 @@ describe('Multiple Content modals', ()=> {
             modalContent: 'This is the <h3>content 3</h3>'
           }
         ],
+        closeBtn: true,
+        closeBtnContent: "<span>x</span>",
         showNav: true,
         showArrows: true
       }
@@ -30,13 +32,13 @@ describe('Multiple Content modals', ()=> {
   wrapper.setData({ modalVisible: true })
   })
 
-  describe('Contents passed', ()=> {
-    it('Show populated buttons', () => {
+  describe('Contents rendered', ()=> {
+    it('Trigger-modal Buttons', () => {
       wrapper.props().modals.forEach(btn => {
         expect(wrapper.html()).toContain(`<button>${btn.btnText}</button>`)
       })
     })
-    it('Show populated contents', () => {
+    it('Modal Cotents', () => {
       wrapper.props().modals.forEach((btn,i) => {
         wrapper.setData({ clickedBtn: i })
         expect(wrapper.html()).toContain(btn.modalContent)
@@ -44,13 +46,35 @@ describe('Multiple Content modals', ()=> {
     })
   })
 
-  describe('Current viewed Modal (clickedBtn)', ()=> {
-    it('Increase on button click', () => {
+  describe('Interactions', ()=> {
+    it('Open Modal', () => {
+      wrapper.setData({ modalVisible: false })
+      const btn = wrapper.find('.btns-wrapper button')
+      btn.trigger('click')
+      expect(wrapper.vm.modalVisible).toBeTruthy()
+      expect(wrapper.contains('.modals')).toBeTruthy()
+      expect(wrapper.contains('.overlay')).toBeTruthy()
+    })
+    it('Close Modal from closeBtn', () => {
+      const btn = wrapper.find('.close')
+      btn.trigger('click')
+      expect(wrapper.vm.modalVisible).toBe(false)
+      expect(wrapper.contains('.modals')).toBe(false)
+      expect(wrapper.contains('.overlay')).toBe(false)
+    })
+    it('Close Modal from overlay', () => {
+      const overlay = wrapper.find('.overlay')
+      overlay.trigger('click')
+      expect(wrapper.vm.modalVisible).toBe(false)
+      expect(wrapper.contains('.modals')).toBe(false)
+      expect(wrapper.contains('.overlay')).toBe(false)
+    })
+    it('Next Content', () => {
       const btn = wrapper.find('.navigation-arrows .next-arrow')
       btn.trigger('click')
       expect(wrapper.vm.clickedBtn).toBe(1)
     })
-    it('Decrease on button click', () => {
+    it('Previous Content', () => {
       wrapper.setData({ clickedBtn: 1 })
       const btn = wrapper.find('.navigation-arrows .prev-arrow')
       btn.trigger('click')
