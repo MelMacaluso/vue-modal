@@ -88,7 +88,7 @@
     "popup",
     "vue-modal-component"
   ],
-  "license": "MIT",
+  "license": "MPL 2.0",
   "main": "dist/vue-modal.umd.min.js",
   "module": "dist/vue-modal-mhm.esm.js",
   "repository": {

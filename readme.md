@@ -1,5 +1,5 @@
-# Vue Modal 🖼
 
+# Vue Modal 🖼
 [![npm](https://img.shields.io/npm/dw/@melmacaluso/vue-modal.svg?label=Downloads)](https://www.npmjs.com/package/@melmacaluso/vue-modal)
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 ![CircleCI (all branches)](https://img.shields.io/circleci/project/github/MelMacaluso/vue-modal.svg)
@@ -35,7 +35,6 @@ Instead: it wants to take it a step further: it gives you a skeleton base struct
   navigation, modal trigger button/s
 
 ## Demo
-
 <div align="center">
 
 ![Vue modal animated demo](https://media.giphy.com/media/7zoNLc5G8zJjWlyR3T/giphy.gif)
@@ -61,21 +60,21 @@ import Modal from "@melmacaluso/vue-modal";
 
 ## Props
 
-| **Prop**             | **Type** | **Comment**                                                                                              |
-| -------------------- | -------- | -------------------------------------------------------------------------------------------------------- |
-| `btnText`            | String   | Text label for modal button                                                                              |
-| `modalContent`       | String   | Pass here your html for the modal main modal                                                             |
-| `closeBtn`           | Boolean  | Conditionally add a close button                                                                         |
-| `closeBtn-content`   | String   | Pass here your html for the close button                                                                 |
-| `multiple`           | Boolean  | Allow multiple buttons/content within the modal                                                          |
-| `modals`             | Array    | Pass here an array of objects, they retain the same props within the array's scope ie. `<scope>.btnText` |
-| `showNav`            | Boolean  | Conditionally show a navigation with each modal's `btnText`                                              |
-| `showArrows`         | Boolean  | Conditionally show an arrow based navigation                                                             |
-| `showArrowsCloseBtn` | Boolean  | Conditionally show an the close button between the prev/next arrows, it inherits `closeBtn-content`      |
-| `arrowNextContent`   | String   | Pass here your html for the next arrow                                                                   |
-| `arrowPrevContent`   | String   | Pass here your html for the previous arrow                                                               |
-| `@before-open`       | Function | Attach here your custom function, it will be invoked before the modal opens                              |
-| `@before-close`      | Function | Attach here your custom function, it will be invoked before the modal closes                             |
+| **Prop**           | **Type** | **Comment**                                                                                              |
+| ------------------ | -------- | -------------------------------------------------------------------------------------------------------- |
+| `btnText`          | String   | Text label for modal button                                                                              |
+| `modalContent`     | String   | Pass here your html for the modal main modal                                                             |
+| `closeBtn`         | Boolean  | Conditionally add a close button                                                                         |
+| `closeBtn-content` | String   | Pass here your html for the close button                                                                 |
+| `multiple`        | Boolean  | Allow multiple buttons/content within the modal                                                          |
+| `modals`           | Array    | Pass here an array of objects, they retain the same props within the array's scope ie. `<scope>.btnText` |
+| `showNav`          | Boolean  | Conditionally show a navigation with each modal's `btnText`                                              |
+| `showArrows`       | Boolean  | Conditionally show an arrow based navigation                                                             |
+| `showArrowsCloseBtn`       | Boolean  | Conditionally show an the close button between the prev/next arrows, it inherits `closeBtn-content`                                                             |
+| `arrowNextContent`  | String   | Pass here your html for the next arrow                                                                   |
+| `arrowPrevContent`  | String   | Pass here your html for the previous arrow                                                               |
+| `@before-open`     | Function  | Attach here your custom function, it will be invoked before the modal opens                              |
+| `@before-close`    | Function  | Attach here your custom function, it will be invoked before the modal closes                             |
 
 ## Examples
 
@@ -139,14 +138,37 @@ import Modal from "@melmacaluso/vue-modal";
 ### From Api/Json feed + Prev/Next Arrows:
 
 ```vue
-<Modal :multiple="true" :modals="formattedUsers" :showArrows="true" />
+<Modal
+  :multiple="true"
+  :modals="formattedUsers"
+  :showArrows="true"
+/>
 
-export default { data: () => { return { users: [] } }, mounted(){
-fetch('https://jsonplaceholder.typicode.com/users') .then(res => res.json())
-.then(res => this.users = res) .catch(err => console.log(err)) }, computed: {
-formattedUsers: function() { return this.users.map(user => { return { btnText:
-`${user.name}`, modalContent: `
-<h2>Email:${user.email}</h2>
-<h2>Phone:${user.phone}</h2>
-` }; }); } } }
+export default {
+  data: () => {
+    return {
+      users: []
+    }
+  },
+  mounted(){
+    fetch('https://jsonplaceholder.typicode.com/users')
+      .then(res => res.json())
+      .then(res => this.users = res)
+      .catch(err => console.log(err))
+  },
+  computed: {
+    formattedUsers: function() {
+      return this.users.map(user => {
+        return {
+          btnText: `${user.name}`,
+          modalContent: `
+            <h2>Email:${user.email}</h2>
+            <h2>Phone:${user.phone}</h2>
+          `
+        };
+      });
+    }
+  }
+}
 ```
+
